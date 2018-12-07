@@ -29,6 +29,10 @@
   name = "github.com/satori/go.uuid"
   version = "1.2.0"
 
+[[override]]
+  name = "gopkg.in/fsnotify.v1"
+  source = "https://github.com/fsnotify/fsnotify.git" 
+
 [prune]
   go-tests = true
   unused-packages = true
