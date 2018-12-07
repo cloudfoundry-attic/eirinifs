@@ -1,0 +1,3 @@
+[submodule "buildpackapplifecycle"]
+	path = buildpackapplifecycle
+	url = https://github.com/cloudfoundry/buildpackapplifecycle

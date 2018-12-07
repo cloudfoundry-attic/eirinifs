@@ -1,0 +1,22 @@
+jobs:
+- name: update-eirinifs
+  plan:
+  - get: eirinifs
+    trigger: true
+  - get: cflinuxfs2-image
+    trigger: true
+  - task: build eirinifs
+    privileged: true
+    file: eirinifs/ci/build-eirinifs.yml
+
+resources:
+- name: eirinifs
+  type: git
+  source:
+    uri: https://github.com/suhlig/eirinifs.git
+    branch: master
+
+- name: cflinuxfs2-image
+  type: docker-image
+  source:
+    repository: cloudfoundry/cflinuxfs2
