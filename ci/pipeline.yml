@@ -5,19 +5,19 @@ jobs:
     trigger: true
   - get: cflinuxfs2-image
     trigger: true
-  - get: tagger
+  - get: eirinifs-version
     params:
       bump: major
-  - put: tagger
+  - put: eirinifs-version
     params:
-      file: tagger/version
+      file: eirinifs-version/version
   - task: build eirinifs
     privileged: true
     file: eirinifs/ci/build-eirinifs.yml
   - put: eirinifs-release
     params:
-      name: tagger/version
-      tag: tagger/version
+      name: eirinifs-version/version
+      tag: eirinifs-version/version
       tag_prefix: v
       globs:
       - go/src/github.com/cloudfoundry-incubator/eirinifs/image/eirinifs.tar
@@ -38,7 +38,7 @@ resources:
     owner: gdankov
     repository: eirinifs
     access_token: ((github-access-token))
-- name: tagger
+- name: eirinifs-version
   type: semver
   source:
     driver: git
