@@ -10,6 +10,9 @@ inputs:
 - name: eirinifs
 - name: cflinuxfs2-image
 
+outputs:
+- name: go/src/github.com/suhlig/eirinifs/image/
+
 run:
   path: eirinifs/ci/build-eirinifs.sh
 
