@@ -2,8 +2,6 @@
 
 set -xeuo pipefail
 
-# TODO Do we need this?
-# echo "package main" > buildpackapplifecycle/launcher/package.go
 start-docker() {
   echo 'DOCKER_OPTS="--data-root /scratch/docker --max-concurrent-downloads 10"' > /etc/default/docker
   service docker start

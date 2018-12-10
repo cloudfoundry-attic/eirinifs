@@ -5,18 +5,44 @@ jobs:
     trigger: true
   - get: cflinuxfs2-image
     trigger: true
+  - get: tagger
+    params:
+      bump: major
+  - put: tagger
+    params:
+      file: tagger/version
   - task: build eirinifs
     privileged: true
     file: eirinifs/ci/build-eirinifs.yml
+  - put: eirinifs-release
+    params:
+      name: tagger/version
+      tag: tagger/version
+      tag_prefix: v
+      globs:
+      - "go/src/github.com/suhlig/eirinifs/image/eirinifs.tar"
 
 resources:
 - name: eirinifs
   type: git
   source:
-    uri: https://github.com/suhlig/eirinifs.git
+    uri: https://github.com/gdankov/eirinifs.git
     branch: master
-
 - name: cflinuxfs2-image
   type: docker-image
   source:
     repository: cloudfoundry/cflinuxfs2
+- name: eirinifs-release
+  type: github-release
+  source:
+    owner: gdankov
+    repository: eirinifs
+    access_token: a26830a51483cbec22b4ec582ea15e32e5b8df7e
+- name: tagger
+  type: semver
+  source:
+    driver: git
+    uri: git@github.com:cloudfoundry/eirini-private-config.git
+    branch: tag-versioning
+    file: version
+    private_key: ((github-private-key))
