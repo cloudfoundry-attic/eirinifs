@@ -1,16 +1,23 @@
 #!/bin/bash
 
-set -xeuo pipefail
+set -euo pipefail
+export ROOT="$PWD/go/src/github.com/cloudfoundry-incubator"
+
+main(){
+  start-docker
+  setup-gopath
+  build-binaries
+  export-eirinifs
+}
 
 start-docker() {
   echo 'DOCKER_OPTS="--data-root /scratch/docker --max-concurrent-downloads 10"' > /etc/default/docker
   service docker start
   trap 'service docker stop' EXIT
 
-  local max_retries=20
+  local -r max_retries=20
   local current_retries=0
   until docker-running; do
-    echo "Current docker status: $(service docker status)"
     if [ "$current_retries" -gt "$max_retries" ]; then
         echo "Failed to start docker daemon after $max_retries retries"
         exit 1
@@ -18,37 +25,37 @@ start-docker() {
     ((++current_retries))
     sleep 0.5
   done
-  echo "Docker started"
 }
 
 docker-running() {
   docker stats --no-stream > /dev/null 2>&1
 }
 
-mkdir -p go/src/github.com/suhlig
-export GOPATH=$PWD/go
-export PATH=$PATH:$GOPATH/bin
+setup-gopath() {
+  mkdir -p "$ROOT"
+  export GOPATH=$PWD/go
+  export PATH=$PATH:$GOPATH/bin
+  cp -r eirinifs "$ROOT"
+}
 
-cp -r eirinifs go/src/github.com/suhlig
+build-binaries() {
+  pushd "$ROOT/eirinifs/launchcmd" || exit 1
+    GOOS=linux go build -a -o "$ROOT/eirinifs/image/launch"
+  popd
 
-start-docker
+  pushd "$ROOT/eirinifs/buildpackapplifecycle/launcher" || exit 1
+    echo "package main" > package.go # https://golang.org/cmd/go/#hdr-Import_path_checking
+    GOOS=linux CGO_ENABLED=0 go build -a -installsuffix static -o "$ROOT/eirinifs/image/launcher"
+  popd
+}
 
+export-eirinifs() {
+  pushd "$ROOT/eirinifs/image" || exit 1
+    docker build -t "eirini/launch" .
+    docker run -it -d --name="eirini-launch" eirini/launch /bin/bash
+    docker export eirini-launch -o eirinifs.tar
+  popd
+}
 
-pushd go/src/github.com/suhlig/eirinifs
-BASEDIR="$(pwd)"
-echo "package main" > $BASEDIR/buildpackapplifecycle/launcher/package.go
+main "$@"
 
-( cd $BASEDIR/launchcmd && GOOS=linux go build -a -o $BASEDIR/image/launch )
-( cd $BASEDIR/buildpackapplifecycle/launcher && GOOS=linux CGO_ENABLED=0 go build -a -installsuffix static -o $BASEDIR/image/launcher )
-
-pushd $BASEDIR/image
-docker build -t "eirini/launch" .
-popd
-
-rm $BASEDIR/image/launch
-rm $BASEDIR/image/launcher
-
-docker run -it -d --name="eirini-launch" eirini/launch /bin/bash
-docker export eirini-launch -o $BASEDIR/image/eirinifs.tar
-docker stop eirini-launch
-docker rm eirini-launch

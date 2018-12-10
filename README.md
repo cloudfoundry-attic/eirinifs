@@ -1,23 +1,10 @@
-# Launcher
+# Eirini Filesystem
 
-The launcher package contains all necessary code to run a cf-app on kube. It is used by the `k8s` package and kube statefulset. 
+This package contains all necessary code to run a Cloud Foundry (CF) app on Kubernetes. It is used by Eirini's [`k8s`](https://github.com/cloudfoundry-incubator/eirini/tree/master/k8s) package to run the app as Kubernetes `StatefulSet`.
 
-## The `launchcmd`
+If no startup command was provided for a CF app, this package parses the `startup_command` from `staging_info.yml` (inside the CF app). It simply wraps the launcher (added via the `buildpackapplifecycle` submodule), which provides the environment setup and launch command for the the app. 
 
-This piece of code wraps `code.cloudfoundry.org/buildpackapplifecycle/launcher`. It is responsible to parse the `startup_command` from the `staging_info.yml` inside cf-app if no startup command was provided. As we use `packs` to do the staging, it is usually the case that no startup command is provided.  
+The `launchcmd` is then provided together with [`cflinuxfs2`](https://github.com/cloudfoundry/cflinuxfs2) and [`launcher`](https://github.com/cloudfoundry/buildpackapplifecycle/tree/master/launcher) as `eirinifs.tar`, forming the root filesystem of the CF app. The [bits-service](https://github.com/cloudfoundry-incubator/bits-service) consumes the GitHub release of `eirinifs` when building the OCI image for the CF app (running in Kubernetes).
 
-The resulting binary of `launchcmd` is provided together with `code.cloudfoundry.org/buildpackapplifecycle/launcher` binary in the `eirinifs.tar`. The `eirinifs` is the basic `cflinuxfs2` + `eirini specific binaries` (`launch` and `launcher`).
-
-## The launcher
-
-The launcher just provides some environment setup and the right launch command for an `opi.LRP`, which is required to run a cf-app successfully. 
-
-## Building the eirinifs.tar file
-
-The `eirinifs.tar` file needs to be provided to the [bits-service](https://github.com/cloudfoundry-incubator/bits-service). To build it you just need to make sure you have `go` and `docker` installed on your machine and run the `bin/build-eirinifs.sh` script.
-
-*NOTES:*
-
-- don't forget to init submodules
-- the `buildpackapplifecycle` package has a comment with an import in `launcher/package.go`. This causes issues when creating the binary. You will need to remove it. 
+Building and updating the release is handled in the [CI pipeline](ci). Use `ci/set-pipeline` to configure it.
 

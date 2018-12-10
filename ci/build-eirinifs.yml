@@ -11,7 +11,7 @@ inputs:
 - name: cflinuxfs2-image
 
 outputs:
-- name: go/src/github.com/suhlig/eirinifs/image/
+- name: go/src/github.com/cloudfoundry-incubator/eirinifs/image/
 
 run:
   path: eirinifs/ci/build-eirinifs.sh

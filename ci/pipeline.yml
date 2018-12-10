@@ -20,7 +20,7 @@ jobs:
       tag: tagger/version
       tag_prefix: v
       globs:
-      - "go/src/github.com/suhlig/eirinifs/image/eirinifs.tar"
+      - go/src/github.com/cloudfoundry-incubator/eirinifs/image/eirinifs.tar
 
 resources:
 - name: eirinifs
@@ -37,12 +37,13 @@ resources:
   source:
     owner: gdankov
     repository: eirinifs
-    access_token: a26830a51483cbec22b4ec582ea15e32e5b8df7e
+    access_token: ((github-access-token))
 - name: tagger
   type: semver
   source:
     driver: git
     uri: git@github.com:cloudfoundry/eirini-private-config.git
-    branch: tag-versioning
+    branch: eirinifs-release-version
     file: version
     private_key: ((github-private-key))
+
