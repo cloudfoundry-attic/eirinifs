@@ -2,6 +2,7 @@ jobs:
 - name: update-eirinifs
   plan:
   - get: eirinifs
+  - get: launcher
     trigger: true
   - get: cflinuxfs2-image
     trigger: true
@@ -28,6 +29,14 @@ resources:
   source:
     uri: https://github.com/cloudfoundry-incubator/eirinifs.git
     branch: master
+- name: launcher
+  type: git
+  source:
+    uri: https://github.com/cloudfoundry-incubator/eirinifs.git
+    branch: master
+    paths:
+    - launchcmd/launch.go
+    - launcher.go
 - name: cflinuxfs2-image
   type: docker-image
   source:
