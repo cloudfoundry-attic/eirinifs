@@ -26,7 +26,7 @@ resources:
 - name: eirinifs
   type: git
   source:
-    uri: https://github.com/gdankov/eirinifs.git
+    uri: https://github.com/cloudfoundry-incubator/eirinifs.git
     branch: master
 - name: cflinuxfs2-image
   type: docker-image
@@ -35,7 +35,7 @@ resources:
 - name: eirinifs-release
   type: github-release
   source:
-    owner: gdankov
+    owner: cloudfoundry-incubator
     repository: eirinifs
     access_token: ((github-access-token))
 - name: eirinifs-version
