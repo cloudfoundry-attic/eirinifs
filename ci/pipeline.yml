@@ -1,9 +1,20 @@
 jobs:
+- name: run-tests
+  plan:
+  - get: eirinifs
+    trigger: true
+  - get: launcher
+    trigger: true
+  - task: run-integration-tests
+    file: eirinifs/ci/run-integration-tests/task.yml
 - name: update-eirinifs
   plan:
   - get: eirinifs
+    trigger: true
+    passed: [ run-tests ]
   - get: launcher
     trigger: true
+    passed: [ run-tests ]
   - get: cflinuxfs2-image
     trigger: true
   - get: eirinifs-version
@@ -14,7 +25,7 @@ jobs:
       file: eirinifs-version/version
   - task: build eirinifs
     privileged: true
-    file: eirinifs/ci/build-eirinifs.yml
+    file: eirinifs/ci/build-eirinifs/task.yml
   - put: eirinifs-release
     params:
       name: eirinifs-version/version

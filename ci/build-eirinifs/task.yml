@@ -14,5 +14,5 @@ outputs:
 - name: go/src/github.com/cloudfoundry-incubator/eirinifs/image/
 
 run:
-  path: eirinifs/ci/build-eirinifs.sh
+  path: eirinifs/ci/build-eirinifs/task.sh
 
