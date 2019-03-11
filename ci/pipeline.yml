@@ -7,7 +7,30 @@ jobs:
     trigger: true
   - task: run-integration-tests
     file: eirinifs/ci/run-integration-tests/task.yml
+  on_failure: &on_failure_hook
+    put: slack
+    params:
+      channel: '#eirini-ci'
+      text: |
+          <!here>
+
+          Pipeline *$BUILD_PIPELINE_NAME* failed :cry:
+
+          Job is *$BUILD_JOB_NAME*
+          Build name is *$BUILD_NAME*
+      attachments: |
+                [{
+                    "color": "danger",
+                    "actions": [
+                          {
+                            "type": "button",
+                            "text": "View in Concourse",
+                            "url": "https://ci.flintstone.cf.cloud.ibm.com/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME"
+                          }
+                    ]
+                }]
 - name: update-eirinifs
+  on_failure: *on_failure_hook
   plan:
   - get: eirinifs
     trigger: true
@@ -34,7 +57,18 @@ jobs:
       globs:
       - go/src/github.com/cloudfoundry-incubator/eirinifs/image/eirinifs.tar
 
+resource_types:
+- name: slack-notification
+  type: docker-image
+  source:
+    repository: cfcommunity/slack-notification-resource
+    tag: latest
+
 resources:
+- name: slack
+  type: slack-notification
+  source:
+    url: ((slack_webhook))
 - name: eirinifs
   type: git
   source:
