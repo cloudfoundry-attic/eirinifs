@@ -38,7 +38,7 @@ jobs:
   - get: launcher
     trigger: true
     passed: [ run-tests ]
-  - get: cflinuxfs2-image
+  - get: cflinuxfs3-image
     trigger: true
   - get: eirinifs-version
     params:
@@ -82,10 +82,10 @@ resources:
     paths:
     - launchcmd/launch.go
     - launcher.go
-- name: cflinuxfs2-image
+- name: cflinuxfs3-image
   type: docker-image
   source:
-    repository: cloudfoundry/cflinuxfs2
+    repository: cloudfoundry/cflinuxfs3
 - name: eirinifs-release
   type: github-release
   source:

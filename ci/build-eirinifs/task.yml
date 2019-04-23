@@ -8,7 +8,6 @@ image_resource:
 
 inputs:
 - name: eirinifs
-- name: cflinuxfs2-image
 
 outputs:
 - name: go/src/github.com/cloudfoundry-incubator/eirinifs/image/
