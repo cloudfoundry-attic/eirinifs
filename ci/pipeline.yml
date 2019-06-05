@@ -49,9 +49,12 @@ jobs:
   - task: build eirinifs
     privileged: true
     file: eirinifs/ci/build-eirinifs/task.yml
+  - task: create-release-notes
+    file: eirinifs/ci/create-release-notes/task.yml
   - put: eirinifs-release
     params:
       name: eirinifs-version/version
+      body: release-notes/notes
       tag: eirinifs-version/version
       tag_prefix: v
       globs:

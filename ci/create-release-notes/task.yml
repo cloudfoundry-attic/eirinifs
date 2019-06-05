@@ -1,0 +1,18 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: eirini/fsbuilder
+
+inputs:
+- name: eirinifs
+- name: cflinuxfs3-image
+
+outputs:
+- name: release-notes
+
+run:
+  path: eirinifs/ci/create-release-notes/task.sh
+
