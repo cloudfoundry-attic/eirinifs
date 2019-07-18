@@ -4,14 +4,15 @@ set -euo pipefail
 IFS=$'\n\t'
 
 readonly basedir="$(cd "$(dirname "$0")/.." && pwd)"
-readonly target=$1
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 readonly private_repo="${2:-$PROJECT_ROOT/../eirini-private-config}"
+readonly target="${1:-eirini}"
 
 fly --target "$target" \
   set-pipeline \
     --config "$basedir/ci/pipeline.yml" \
     --pipeline eirinifs \
+    --var eirini-release-private-key="$(pass eirini/github/eirini-release/ssh-key)" \
     --var github-private-key="$(pass eirini/github/private-config/ssh-key)" \
     --var github-access-token="$(pass eirini/github/eirinici/access-token)" \
     --load-vars-from "$private_repo/concourse/common.yml"
