@@ -93,7 +93,7 @@ jobs:
         - |
           #!/bin/bash
           set -euo pipefail
-          eirinifs_version=$(cat eirinifs-release/version)
+          eirinifs_version=$(cat eirinifs-release/tag)
           pushd eirini-release
           sed -i "s|  rootfs_version:.*|  rootfs_version: '${eirinifs_version}'|" helm/cf/values.yaml
           git add "helm/cf/values.yaml"
