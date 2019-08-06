@@ -59,7 +59,7 @@ export-eirinifs() {
 }
 
 create-checksum-file() {
-  shasum -a 256 $ROOT/eirinifs/image/eirinifs.tar | awk '{print $1}' > $ROOT/eirinifs/image/eirinifs.tar.sha256
+  shasum -a 256 "$ROOT/eirinifs/image/eirinifs.tar" | awk '{print $1}' > "$ROOT/eirinifs/image/eirinifs.tar.sha256"
 }
 
 main "$@"
