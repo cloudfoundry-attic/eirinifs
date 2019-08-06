@@ -59,6 +59,8 @@ jobs:
       tag_prefix: v
       globs:
       - go/src/github.com/cloudfoundry-incubator/eirinifs/image/eirinifs.tar
+      - go/src/github.com/cloudfoundry-incubator/eirinifs/image/eirinifs.tar.sha256
+
 - name: update-eirini-release
   on_failure: *on_failure_hook
   plan:
