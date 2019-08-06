@@ -8,6 +8,7 @@ main(){
   setup-gopath
   build-binaries
   export-eirinifs
+  create-checksum-file
 }
 
 start-docker() {
@@ -55,6 +56,10 @@ export-eirinifs() {
     docker run -it -d --name="eirini-launch" eirini/launch /bin/bash
     docker export eirini-launch -o eirinifs.tar
   popd
+}
+
+create-checksum-file() {
+  shasum -a 256 $ROOT/eirinifs/image/eirinifs.tar | awk '{print $1}' > $ROOT/eirinifs/image/eirinifs.tar.sha256
 }
 
 main "$@"
