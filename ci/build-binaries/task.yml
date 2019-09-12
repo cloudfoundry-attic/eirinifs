@@ -8,11 +8,10 @@ image_resource:
 
 inputs:
 - name: eirinifs
-- name: binaries
 
 outputs:
-- name: go/src/github.com/cloudfoundry-incubator/eirinifs/image/
+- name: binaries
 
 run:
-  path: eirinifs/ci/build-eirinifs/task.sh
+  path: eirinifs/ci/build-binaries/task.sh
 

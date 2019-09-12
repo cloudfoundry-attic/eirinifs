@@ -46,6 +46,9 @@ jobs:
   - put: eirinifs-version
     params:
       file: eirinifs-version/version
+  - task: build binaries
+    privileged: true
+    file: eirinifs/ci/build-binaries/task.yml
   - task: build eirinifs
     privileged: true
     file: eirinifs/ci/build-eirinifs/task.yml
