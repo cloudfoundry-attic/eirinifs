@@ -40,6 +40,8 @@ jobs:
     passed: [ run-tests ]
   - get: cflinuxfs3-image
     trigger: true
+  - get: sle15-release
+    trigger: true
   - get: eirinifs-version
     params:
       bump: major
@@ -52,6 +54,9 @@ jobs:
   - task: build eirinifs
     privileged: true
     file: eirinifs/ci/build-eirinifs/task.yml
+  - task: build sle15
+    privileged: true
+    file: eirinifs/ci/build-sle15/task.yml
   - task: create-release-notes
     file: eirinifs/ci/create-release-notes/task.yml
   - put: eirinifs-release
@@ -141,6 +146,11 @@ resources:
   type: docker-image
   source:
     repository: cloudfoundry/cflinuxfs3
+- name: sle15-release
+  type: github-release
+  source:
+    owner: SUSE
+    repository: cf-sle15-release
 - name: eirinifs-release
   type: github-release
   source:
