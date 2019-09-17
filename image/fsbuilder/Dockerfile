@@ -1,4 +1,4 @@
-FROM golang:1.10.2
+FROM golang:latest
 
 RUN apt-get update && \
     apt-get install --yes \
