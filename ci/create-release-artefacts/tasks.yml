@@ -1,0 +1,21 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: debian
+
+inputs:
+- name: eirinifs-image
+
+outputs:
+- name: eirinifs-artefacts
+
+run:
+  path: bash
+  args:
+  - -c
+  - |
+    set -euo pipefail
+    cp eirinifs-image/rootfs.tar eirinifs-artefacts/eirinifs.tar
+    sha256sum "eirinifs-image/rootfs.tar" | awk '{print $1}' >"eirinifs-artefacts/eirinifs.tar.sha256"

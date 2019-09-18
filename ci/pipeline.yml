@@ -32,23 +32,31 @@ jobs:
 - name: update-eirinifs
   on_failure: *on_failure_hook
   plan:
-  - get: eirinifs
-    trigger: true
-    passed: [ run-tests ]
-  - get: launcher
-    trigger: true
-    passed: [ run-tests ]
-  - get: cflinuxfs3-image
-    trigger: true
-  - get: eirinifs-version
-    params:
-      bump: major
+  - in_parallel:
+    - get: eirinifs
+      trigger: true
+      passed: [ run-tests ]
+    - get: launcher
+      trigger: true
+      passed: [ run-tests ]
+    - get: cflinuxfs3-image
+      trigger: true
+      params:
+        skip_download: true
+    - get: eirinifs-version
+      params:
+        bump: major
   - put: eirinifs-version
     params:
       file: eirinifs-version/version
-  - task: build eirinifs
-    privileged: true
-    file: eirinifs/ci/build-eirinifs/task.yml
+  - put: eirinifs-image
+    params:
+      build: eirinifs
+      dockerfile: eirinifs/image/Dockerfile
+    get_params:
+      rootfs: true
+  - task: create-release-artefacts
+    file: eirinifs/ci/create-release-artefacts/task.yml
   - task: create-release-notes
     file: eirinifs/ci/create-release-notes/task.yml
   - put: eirinifs-release
@@ -58,8 +66,8 @@ jobs:
       tag: eirinifs-version/version
       tag_prefix: v
       globs:
-      - go/src/github.com/cloudfoundry-incubator/eirinifs/image/eirinifs.tar
-      - go/src/github.com/cloudfoundry-incubator/eirinifs/image/eirinifs.tar.sha256
+      - eirinifs-artefacts/eirinifs.tar
+      - eirinifs-artefacts/eirinifs.tar.sha256
 
 - name: update-eirini-release
   on_failure: *on_failure_hook
@@ -163,4 +171,11 @@ resources:
   source:
     uri: https://github.com/cloudfoundry-incubator/eirini-ci
     branch: master
-
+- name: eirinifs-image
+  type: docker-image
+  icon: docker
+  source:
+    repository: eirini/eirinifs
+    tag: test-multi-stage
+    username: ((docker_hub_user))
+    password: ((docker_hub_password))
