@@ -180,6 +180,7 @@ resources:
     owner: cloudfoundry
     repository: cflinuxfs3
 - name: eirinifs-release
+  check_every: 2h
   type: github-release
   source:
     owner: cloudfoundry-incubator
