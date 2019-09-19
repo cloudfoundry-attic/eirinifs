@@ -171,7 +171,7 @@ resources:
 - name: eirinifs
   type: git
   source:
-    uri: git@github.com/cloudfoundry-incubator/eirinifs.git
+    uri: git@github.com:cloudfoundry-incubator/eirinifs.git
     private_key: ((eirinifs-private-key))
     branch: master
 - name: cflinuxfs3-release
@@ -210,5 +210,5 @@ resources:
   source:
     repository: eirini/eirinifs
     tag: test-multi-stage
-    username: ((docker_hub_user))
-    password: ((docker_hub_password))
+    username: ((dockerhub-user))
+    password: ((dockerhub-password))
