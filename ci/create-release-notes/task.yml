@@ -8,7 +8,7 @@ image_resource:
 
 inputs:
 - name: eirinifs
-- name: cflinuxfs3-image
+- name: cflinuxfs3-release
 
 outputs:
 - name: release-notes

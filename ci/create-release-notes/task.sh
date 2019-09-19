@@ -7,7 +7,7 @@ readonly RELEASE_NOTES="$PWD/release-notes/notes"
 main() {
   touch "$RELEASE_NOTES"
   add-eirinifs-information
-  add-cflinuxfs3-image-information
+  add-cflinuxfs3-information
 }
 
 add-eirinifs-information() {
@@ -26,18 +26,14 @@ add-eirinifs-information() {
   popd || exit 1
 }
 
-add-cflinuxfs3-image-information() {
-  local tag digest
-  pushd cflinuxfs3-image || exit 1
-  tag="$(cat tag)"
-  digest="$(cat digest)"
+add-cflinuxfs3-information() {
+  local tag
+  tag="$(cat cflinuxfs3-release/tag)"
   {
     echo ""
     echo "This release includes the following cflinuxfs3 image:"
     echo "  Tag: $tag"
-    echo "  Digest: $digest"
   } >> "$RELEASE_NOTES"
-  popd || exit 1
 }
 
 main

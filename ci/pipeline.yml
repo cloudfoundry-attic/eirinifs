@@ -45,6 +45,8 @@ jobs:
 
 - name: run-tests
   plan:
+  - get: cflinuxfs3-release
+    passed: [ bump-cflinuxfs3 ]
   - get: eirinifs
     trigger: true
   - task: run-integration-tests
@@ -75,13 +77,11 @@ jobs:
   on_failure: *on_failure_hook
   plan:
   - in_parallel:
+    - get: cflinuxfs3-release
+      passed: [ run-tests ]
     - get: eirinifs
       trigger: true
       passed: [ run-tests ]
-    - get: cflinuxfs3-image
-      trigger: true
-      params:
-        skip_download: true
     - get: eirinifs-version
       params:
         bump: major
@@ -179,10 +179,6 @@ resources:
   source:
     owner: cloudfoundry
     repository: cflinuxfs3
-- name: cflinuxfs3-image
-  type: docker-image
-  source:
-    repository: cloudfoundry/cflinuxfs3
 - name: eirinifs-release
   type: github-release
   source:
