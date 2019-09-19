@@ -12,6 +12,7 @@ fly --target "$target" \
   set-pipeline \
     --config "$basedir/ci/pipeline.yml" \
     --pipeline eirinifs \
+    --var eirinifs-private-key="$(pass eirini/github/eirini/ssh-key)" \
     --var eirini-release-private-key="$(pass eirini/github/eirini-release/ssh-key)" \
     --var github-private-key="$(pass eirini/github/private-config/ssh-key)" \
     --var github-access-token="$(pass eirini/github/eirinici/access-token)" \

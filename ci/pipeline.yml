@@ -1,9 +1,51 @@
 jobs:
+- name: bump-cflinuxfs3
+  plan:
+  - in_parallel:
+    - get: eirinifs
+    - get: cflinuxfs3-release
+      trigger: true
+  - task: bump-eirinifs
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: eirini/ci
+
+      inputs:
+      - name: eirinifs
+      - name: cflinuxfs3-release
+
+      outputs:
+      - name: eirinifs-modified
+
+      run:
+        path: bash
+        args:
+        - -c
+        - |
+          #!/bin/bash
+          set -euo pipefail
+          cflinuxfs3_version=$(cat cflinuxfs3-release/tag)
+          pushd eirinifs
+          sed -i "s|FROM cloudfoundry.*|FROM cloudfoundry/cflinuxfs3:${cflinuxfs3_version}|" image/Dockerfile
+          git add "image/Dockerfile"
+          git config --global user.email "eirini@cloudfoundry.org"
+          git config --global user.name "Come-On Eirini"
+          git commit --all --message "update cflinuxfs3 version to ${cflinuxfs3_version}"
+          popd
+
+          cp -r eirinifs/. eirinifs-modified/
+
+  - put: eirinifs
+    params:
+      merge: true
+      repository: eirinifs-modified
+
 - name: run-tests
   plan:
   - get: eirinifs
-    trigger: true
-  - get: launcher
     trigger: true
   - task: run-integration-tests
     file: eirinifs/ci/run-integration-tests/task.yml
@@ -34,9 +76,6 @@ jobs:
   plan:
   - in_parallel:
     - get: eirinifs
-      trigger: true
-      passed: [ run-tests ]
-    - get: launcher
       trigger: true
       passed: [ run-tests ]
     - get: cflinuxfs3-image
@@ -132,16 +171,14 @@ resources:
 - name: eirinifs
   type: git
   source:
-    uri: https://github.com/cloudfoundry-incubator/eirinifs.git
+    uri: git@github.com/cloudfoundry-incubator/eirinifs.git
+    private_key: ((eirinifs-private-key))
     branch: master
-- name: launcher
-  type: git
+- name: cflinuxfs3-release
+  type: github-release
   source:
-    uri: https://github.com/cloudfoundry-incubator/eirinifs.git
-    branch: master
-    paths:
-    - launchcmd/launch.go
-    - launcher.go
+    owner: cloudfoundry
+    repository: cflinuxfs3
 - name: cflinuxfs3-image
   type: docker-image
   source:
