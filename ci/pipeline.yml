@@ -43,7 +43,7 @@ jobs:
           set -euo pipefail
           cflinuxfs3_version=$(cat cflinuxfs3-release/tag)
           pushd eirinifs
-          sed -i "s|FROM cloudfoundry.*|FROM cloudfoundry/cflinuxfs3:${cflinuxfs3_version}|" image/Dockerfile
+          sed -i "s|ARG cloudfoundry.*|ARG cloudfoundry/cflinuxfs3:${cflinuxfs3_version}|" image/Dockerfile
           git add "image/Dockerfile"
           git config --global user.email "eirini@cloudfoundry.org"
           git config --global user.name "Come-On Eirini"
