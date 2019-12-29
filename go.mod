@@ -21,8 +21,8 @@ require (
 	github.com/onsi/gomega v1.7.0
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/satori/go.uuid v1.2.0
-	golang.org/x/crypto v0.0.0-20191219195013-becbf705a915 // indirect
+	golang.org/x/crypto v0.0.0-20191227163750-53104e6ec876 // indirect
 	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553 // indirect
-	golang.org/x/sys v0.0.0-20191220220014-0732a990476f
+	golang.org/x/sys v0.0.0-20191228213918-04cbcbbfeed8
 	gopkg.in/yaml.v2 v2.2.7
 )
