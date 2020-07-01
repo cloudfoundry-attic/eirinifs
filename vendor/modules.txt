@@ -1,48 +1,3 @@
-# code.cloudfoundry.org/archiver v0.0.0-20180525162158-e135af3d5a2a
-code.cloudfoundry.org/archiver/compressor
-code.cloudfoundry.org/archiver/extractor
-# code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20191120185355-45f098c540a0
-code.cloudfoundry.org/buildpackapplifecycle
-code.cloudfoundry.org/buildpackapplifecycle/buildpackrunner
-code.cloudfoundry.org/buildpackapplifecycle/buildpackrunner/resources
-code.cloudfoundry.org/buildpackapplifecycle/containerpath
-code.cloudfoundry.org/buildpackapplifecycle/credhub
-code.cloudfoundry.org/buildpackapplifecycle/databaseuri
-code.cloudfoundry.org/buildpackapplifecycle/env
-code.cloudfoundry.org/buildpackapplifecycle/launcher/profile
-code.cloudfoundry.org/buildpackapplifecycle/platformoptions
-code.cloudfoundry.org/buildpackapplifecycle/shell
-code.cloudfoundry.org/buildpackapplifecycle/shell/exec
-# code.cloudfoundry.org/bytefmt v0.0.0-20190819182555-854d396b647c
-code.cloudfoundry.org/bytefmt
-# code.cloudfoundry.org/cacheddownloader v0.0.0-20191025171633-45dd66a014fe
-code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20191119172557-a0589223ffa9
-code.cloudfoundry.org/credhub-cli/credhub/auth
-code.cloudfoundry.org/credhub-cli/credhub/auth/uaa
-code.cloudfoundry.org/credhub-cli/credhub/credentials
-code.cloudfoundry.org/credhub-cli/credhub/credentials/generate
-code.cloudfoundry.org/credhub-cli/credhub/credentials/values
-code.cloudfoundry.org/credhub-cli/credhub/permissions
-code.cloudfoundry.org/credhub-cli/credhub/server
-code.cloudfoundry.org/credhub-cli/errors
-# code.cloudfoundry.org/goshims v0.0.0-20191203003759-f83b303abbb8
-code.cloudfoundry.org/goshims/osshim
-code.cloudfoundry.org/goshims/osshim/os_fake
-# code.cloudfoundry.org/lager v2.0.0+incompatible
-code.cloudfoundry.org/lager
-# github.com/cloudfoundry-incubator/credhub-cli v0.0.0-20191119172557-a0589223ffa9
-github.com/cloudfoundry-incubator/credhub-cli/credhub
-# github.com/cloudfoundry/go-socks5 v0.0.0-20180221174514-54f73bdb8a8e
-github.com/cloudfoundry/go-socks5
-# github.com/cloudfoundry/socks5-proxy v0.2.0
-github.com/cloudfoundry/socks5-proxy
-# github.com/cyphar/filepath-securejoin v0.2.2
-github.com/cyphar/filepath-securejoin
-# github.com/golang/protobuf v1.2.0
-github.com/golang/protobuf/proto
-# github.com/hashicorp/go-version v1.2.0
-github.com/hashicorp/go-version
 # github.com/hpcloud/tail v1.0.0
 github.com/hpcloud/tail
 github.com/hpcloud/tail/ratelimiter
@@ -73,7 +28,6 @@ github.com/onsi/gomega
 github.com/onsi/gomega/format
 github.com/onsi/gomega/gbytes
 github.com/onsi/gomega/gexec
-github.com/onsi/gomega/ghttp
 github.com/onsi/gomega/internal/assertion
 github.com/onsi/gomega/internal/asyncassertion
 github.com/onsi/gomega/internal/oraclematcher
@@ -84,29 +38,14 @@ github.com/onsi/gomega/matchers/support/goraph/edge
 github.com/onsi/gomega/matchers/support/goraph/node
 github.com/onsi/gomega/matchers/support/goraph/util
 github.com/onsi/gomega/types
-# github.com/pkg/errors v0.8.1
-github.com/pkg/errors
 # github.com/satori/go.uuid v1.2.0
 github.com/satori/go.uuid
-# golang.org/x/crypto v0.0.0-20191227163750-53104e6ec876
-golang.org/x/crypto/chacha20
-golang.org/x/crypto/curve25519
-golang.org/x/crypto/ed25519
-golang.org/x/crypto/ed25519/internal/edwards25519
-golang.org/x/crypto/internal/subtle
-golang.org/x/crypto/poly1305
-golang.org/x/crypto/ssh
 # golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
-golang.org/x/net/context
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
-golang.org/x/net/internal/socks
-golang.org/x/net/proxy
 # golang.org/x/sys v0.0.0-20191228213918-04cbcbbfeed8
-golang.org/x/sys/cpu
 golang.org/x/sys/unix
-golang.org/x/sys/windows
 # golang.org/x/text v0.3.0
 golang.org/x/text/encoding
 golang.org/x/text/encoding/charmap

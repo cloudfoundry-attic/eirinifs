@@ -2,6 +2,8 @@ code.cloudfoundry.org/archiver v0.0.0-20180525162158-e135af3d5a2a h1:08sH6EQehbQ
 code.cloudfoundry.org/archiver v0.0.0-20180525162158-e135af3d5a2a/go.mod h1:EU/KcUvh4qBVN6ffu/b8t9x7SurDot+AO0HqEZ+9QOg=
 code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20191120185355-45f098c540a0 h1:O5s/YiNccAEmN1eGkoFggTxqC/AfJOhHZgOKIif+8ho=
 code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20191120185355-45f098c540a0/go.mod h1:HYcRj8n4GH2YcnsrJP9BRPHIHUMTecbNIv1ILL8TaGI=
+code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20200609210004-8f2039f5b509 h1:c8m10BYbg4/rjhUGWtdYDqA8Xr1ZSUbP7NXjlNa1aRI=
+code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20200609210004-8f2039f5b509/go.mod h1:HYcRj8n4GH2YcnsrJP9BRPHIHUMTecbNIv1ILL8TaGI=
 code.cloudfoundry.org/bytefmt v0.0.0-20190819182555-854d396b647c h1:2RuXx1+tSNWRjxhY0Bx52kjV2odJQ0a6MTbfTPhGAkg=
 code.cloudfoundry.org/bytefmt v0.0.0-20190819182555-854d396b647c/go.mod h1:wN/zk7mhREp/oviagqUXY3EwuHhWyOvAdsn5Y4CzOrc=
 code.cloudfoundry.org/cacheddownloader v0.0.0-20191025171633-45dd66a014fe h1:cD5AJPilHhEjHZozaXUj7OQIfsnMZ588SSnlFeDKtCM=
