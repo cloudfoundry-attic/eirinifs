@@ -7,19 +7,21 @@ readonly basedir="$(cd "$(dirname "$0")/.." && pwd)"
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 readonly private_repo="${2:-$PROJECT_ROOT/../eirini-private-config}"
 readonly target="${1:-eirini}"
+PIPELINE_YAML=$(mktemp)
+spruce merge "$basedir/ci/pipeline.yml" >"$PIPELINE_YAML"
 
 fly --target "$target" \
   set-pipeline \
-    --config "$basedir/ci/pipeline.yml" \
-    --pipeline eirinifs \
-    --var eirinifs-private-key="$(pass eirini/github/eirinifs/ssh-key)" \
-    --var eirini-release-private-key="$(pass eirini/github/eirini-release/ssh-key)" \
-    --var github-private-key="$(pass eirini/github/private-config/ssh-key)" \
-    --var github-access-token="$(pass eirini/github/eirinici/access-token)" \
-    --var dockerhub-user=eiriniuser \
-    --var dockerhub-password="$(pass eirini/docker-hub)" \
-    --load-vars-from "$private_repo/concourse/common.yml"
+  --config "$PIPELINE_YAML" \
+  --pipeline eirinifs \
+  --var eirinifs-private-key="$(pass eirini/github/eirinifs/ssh-key)" \
+  --var eirini-release-private-key="$(pass eirini/github/eirini-release/ssh-key)" \
+  --var github-private-key="$(pass eirini/github/private-config/ssh-key)" \
+  --var github-access-token="$(pass eirini/github/eirinici/access-token)" \
+  --var dockerhub-user=eiriniuser \
+  --var dockerhub-password="$(pass eirini/docker-hub)" \
+  --load-vars-from "$private_repo/concourse/common.yml"
 
 fly --target "$target" \
-    expose-pipeline \
-    --pipeline eirinifs
+  expose-pipeline \
+  --pipeline eirinifs

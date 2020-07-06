@@ -7,9 +7,24 @@ jobs:
     - get: eirinifs
     - get: ci-resources
   - task: bump-go-packages
-    file: ci-resources/tasks/bump-go-packages/task.yml
     input_mapping:
       repository: eirinifs
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: eirini/ci
+      inputs:
+      - name: repository
+      outputs:
+      - name: repository-updated
+      run:
+        path: /usr/bin/env
+        args:
+        - bash
+        - -c
+        - (( file "./inline-tasks/bump-go-packages.sh" ))
   - put: eirinifs
     params:
       repository: repository-updated
@@ -26,32 +41,16 @@ jobs:
         type: docker-image
         source:
           repository: eirini/ci
-
       inputs:
       - name: eirinifs
       - name: cflinuxfs3-release
-
       outputs:
       - name: eirinifs-modified
-
       run:
         path: bash
         args:
         - -c
-        - |
-          #!/bin/bash
-          set -euo pipefail
-          cflinuxfs3_version=$(cat cflinuxfs3-release/tag)
-          pushd eirinifs
-          sed -i "s|ARG baseimage=cloudfoundry.*|ARG baseimage=cloudfoundry/cflinuxfs3:${cflinuxfs3_version}|" image/Dockerfile
-          git add "image/Dockerfile"
-          git config --global user.email "eirini@cloudfoundry.org"
-          git config --global user.name "Come-On Eirini"
-          git commit --all --message "update cflinuxfs3 version to ${cflinuxfs3_version}"
-          popd
-
-          cp -r eirinifs/. eirinifs-modified/
-
+        - (( file "./inline-tasks/bump-eirinifs.sh" ))
   - put: eirinifs
     params:
       merge: true
@@ -64,7 +63,20 @@ jobs:
   - get: eirinifs
     trigger: true
   - task: run-integration-tests
-    file: eirinifs/ci/run-integration-tests/task.yml
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: eirini/ci
+      inputs:
+      - name: eirinifs
+      run:
+        path: /usr/bin/env
+        args:
+        - bash
+        - -c
+        - (( file "./inline-tasks/run-integration-tests.sh" ))
   on_failure: &on_failure_hook
     put: slack
     params:
@@ -109,9 +121,38 @@ jobs:
     get_params:
       rootfs: true
   - task: create-release-artefacts
-    file: eirinifs/ci/create-release-artefacts/task.yml
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: debian
+      inputs:
+      - name: eirinifs-image
+      outputs:
+      - name: eirinifs-artefacts
+      run:
+        path: bash
+        args:
+        - -c
+        - (( file "./inline-tasks/create-release-artefacts.sh" ))
   - task: create-release-notes
-    file: eirinifs/ci/create-release-notes/task.yml
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: eirini/fsbuilder
+      inputs:
+      - name: eirinifs
+      - name: cflinuxfs3-release
+      outputs:
+      - name: release-notes
+      run:
+        path: bash
+        args:
+        - -c
+        - (( file "./inline-tasks/create-release-notes.sh" ))
   - put: eirinifs-release
     params:
       name: eirinifs-version/version
@@ -140,32 +181,17 @@ jobs:
         type: docker-image
         source:
           repository: eirini/ci
-
       inputs:
       - name: ci-resources
       - name: eirini-release
       - name: eirinifs-release
-
       outputs:
       - name: eirini-release-modified
-
       run:
         path: bash
         args:
         - -c
-        - |
-          #!/bin/bash
-          set -euo pipefail
-          eirinifs_version=$(cat eirinifs-release/tag)
-          pushd eirini-release
-          sed -i "s|  rootfs_version:.*|  rootfs_version: '${eirinifs_version}'|" helm/cf/values.yaml
-          git add "helm/cf/values.yaml"
-          git config --global user.email "eirini@cloudfoundry.org"
-          git config --global user.name "Come-On Eirini"
-          git commit --all --message "update eirinifs version"
-          popd
-
-          cp -r eirini-release/. eirini-release-modified/
+        - (( file "./inline-tasks/update-eirinifs-version.sh" ))
   - put: eirini-release
     params:
       merge: true
