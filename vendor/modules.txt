@@ -17,7 +17,7 @@ code.cloudfoundry.org/buildpackapplifecycle/shell/exec
 code.cloudfoundry.org/bytefmt
 # code.cloudfoundry.org/cacheddownloader v0.0.0-20200131002357-1a5ba4181601
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20200629130038-0084cad9dbda
+# code.cloudfoundry.org/credhub-cli v0.0.0-20200706130035-4b9097e6bba9
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
 code.cloudfoundry.org/credhub-cli/credhub/auth/uaa
