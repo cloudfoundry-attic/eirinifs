@@ -13,7 +13,7 @@ require (
 	code.cloudfoundry.org/systemcerts v0.0.0-20200131000731-95ea366d9154 // indirect
 	code.cloudfoundry.org/tlsconfig v0.0.0-20200131000646-bbe0f8da39b3 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
-	github.com/onsi/ginkgo v1.13.0
+	github.com/onsi/ginkgo v1.14.0
 	github.com/onsi/gomega v1.10.1
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/satori/go.uuid v1.2.0
