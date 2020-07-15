@@ -7,7 +7,7 @@ require (
 	code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20200609210004-8f2039f5b509
 	code.cloudfoundry.org/bytefmt v0.0.0-20200131002437-cf55d5288a48
 	code.cloudfoundry.org/cacheddownloader v0.0.0-20200131002357-1a5ba4181601
-	code.cloudfoundry.org/credhub-cli v0.0.0-20200706130035-4b9097e6bba9
+	code.cloudfoundry.org/credhub-cli v0.0.0-20200713130201-1e18c614f4ad
 	code.cloudfoundry.org/goshims v0.4.0
 	code.cloudfoundry.org/lager v2.0.0+incompatible
 	code.cloudfoundry.org/systemcerts v0.0.0-20200131000731-95ea366d9154 // indirect
@@ -17,7 +17,6 @@ require (
 	github.com/onsi/gomega v1.10.1
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/satori/go.uuid v1.2.0
-	golang.org/x/net v0.0.0-20200707034311-ab3426394381 // indirect
 	golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae
 	golang.org/x/text v0.3.3 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
