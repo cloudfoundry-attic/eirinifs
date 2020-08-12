@@ -17,7 +17,7 @@ require (
 	github.com/onsi/gomega v1.10.1
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/satori/go.uuid v1.2.0
-	golang.org/x/sys v0.0.0-20200803210538-64077c9b5642
+	golang.org/x/sys v0.0.0-20200810151505-1b9f1253b3ed
 	golang.org/x/text v0.3.3 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
