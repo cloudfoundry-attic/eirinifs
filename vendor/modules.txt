@@ -1,7 +1,7 @@
 # code.cloudfoundry.org/archiver v0.0.0-20200131002800-4ca7245c29b1
 code.cloudfoundry.org/archiver/compressor
 code.cloudfoundry.org/archiver/extractor
-# code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20200609210004-8f2039f5b509
+# code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20200814172825-d53c18d48ba9
 code.cloudfoundry.org/buildpackapplifecycle
 code.cloudfoundry.org/buildpackapplifecycle/buildpackrunner
 code.cloudfoundry.org/buildpackapplifecycle/buildpackrunner/resources
@@ -17,7 +17,7 @@ code.cloudfoundry.org/buildpackapplifecycle/shell/exec
 code.cloudfoundry.org/bytefmt
 # code.cloudfoundry.org/cacheddownloader v0.0.0-20200131002357-1a5ba4181601
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20200803171713-a73ac043a094
+# code.cloudfoundry.org/credhub-cli v0.0.0-20200817130135-86a53e38fe17
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
 code.cloudfoundry.org/credhub-cli/credhub/auth/uaa
@@ -100,14 +100,14 @@ golang.org/x/crypto/internal/subtle
 golang.org/x/crypto/poly1305
 golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
-# golang.org/x/net v0.0.0-20200707034311-ab3426394381
+# golang.org/x/net v0.0.0-20200813134508-3edf25e44fcc
 golang.org/x/net/context
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sys v0.0.0-20200810151505-1b9f1253b3ed
+# golang.org/x/sys v0.0.0-20200817155316-9781c653f443
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/unix
