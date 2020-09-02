@@ -17,7 +17,7 @@ code.cloudfoundry.org/buildpackapplifecycle/shell/exec
 code.cloudfoundry.org/bytefmt
 # code.cloudfoundry.org/cacheddownloader v0.0.0-20200131002357-1a5ba4181601
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20200824130115-44aad0dad2b1
+# code.cloudfoundry.org/credhub-cli v0.0.0-20200831130244-9f8d1497e8b9
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
 code.cloudfoundry.org/credhub-cli/credhub/auth/uaa
@@ -107,7 +107,7 @@ golang.org/x/net/html/atom
 golang.org/x/net/html/charset
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sys v0.0.0-20200824131525-c12d262b63d8
+# golang.org/x/sys v0.0.0-20200831180312-196b9ba8737a
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/unix
