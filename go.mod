@@ -18,6 +18,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/satori/go.uuid v1.2.0
 	golang.org/x/crypto v0.0.0-20201012173705-84dcc777aaee // indirect
-	golang.org/x/sys v0.0.0-20201013132646-2da7054afaeb
+	golang.org/x/sys v0.0.0-20201014080544-cc95f250f6bc
 	gopkg.in/yaml.v2 v2.3.0
 )
