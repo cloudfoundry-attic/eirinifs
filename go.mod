@@ -13,11 +13,13 @@ require (
 	code.cloudfoundry.org/systemcerts v0.0.0-20200131000731-95ea366d9154 // indirect
 	code.cloudfoundry.org/tlsconfig v0.0.0-20200131000646-bbe0f8da39b3 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
+	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/onsi/ginkgo v1.14.2
 	github.com/onsi/gomega v1.10.3
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/satori/go.uuid v1.2.0
-	golang.org/x/crypto v0.0.0-20201012173705-84dcc777aaee // indirect
-	golang.org/x/sys v0.0.0-20201014080544-cc95f250f6bc
+	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect
+	golang.org/x/net v0.0.0-20201020065357-d65d470038a5 // indirect
+	golang.org/x/sys v0.0.0-20201020230747-6e5568b54d1a
 	gopkg.in/yaml.v2 v2.3.0
 )
