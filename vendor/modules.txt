@@ -1,9 +1,7 @@
 # code.cloudfoundry.org/archiver v0.0.0-20200131002800-4ca7245c29b1
-## explicit
 code.cloudfoundry.org/archiver/compressor
 code.cloudfoundry.org/archiver/extractor
 # code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20200814172825-d53c18d48ba9
-## explicit
 code.cloudfoundry.org/buildpackapplifecycle
 code.cloudfoundry.org/buildpackapplifecycle/buildpackrunner
 code.cloudfoundry.org/buildpackapplifecycle/buildpackrunner/resources
@@ -16,13 +14,10 @@ code.cloudfoundry.org/buildpackapplifecycle/platformoptions
 code.cloudfoundry.org/buildpackapplifecycle/shell
 code.cloudfoundry.org/buildpackapplifecycle/shell/exec
 # code.cloudfoundry.org/bytefmt v0.0.0-20200131002437-cf55d5288a48
-## explicit
 code.cloudfoundry.org/bytefmt
 # code.cloudfoundry.org/cacheddownloader v0.0.0-20200131002357-1a5ba4181601
-## explicit
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20201026130138-5bb812c9a82b
-## explicit
+# code.cloudfoundry.org/credhub-cli v0.0.0-20201012130117-2ebe14b120cc
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
 code.cloudfoundry.org/credhub-cli/credhub/auth/uaa
@@ -33,22 +28,15 @@ code.cloudfoundry.org/credhub-cli/credhub/permissions
 code.cloudfoundry.org/credhub-cli/credhub/server
 code.cloudfoundry.org/credhub-cli/errors
 # code.cloudfoundry.org/goshims v0.4.0
-## explicit
 code.cloudfoundry.org/goshims/osshim
 code.cloudfoundry.org/goshims/osshim/os_fake
 # code.cloudfoundry.org/lager v2.0.0+incompatible
-## explicit
 code.cloudfoundry.org/lager
-# code.cloudfoundry.org/systemcerts v0.0.0-20200131000731-95ea366d9154
-## explicit
-# code.cloudfoundry.org/tlsconfig v0.0.0-20200131000646-bbe0f8da39b3
-## explicit
 # github.com/cloudfoundry/go-socks5 v0.0.0-20180221174514-54f73bdb8a8e
 github.com/cloudfoundry/go-socks5
 # github.com/cloudfoundry/socks5-proxy v0.2.0
 github.com/cloudfoundry/socks5-proxy
 # github.com/cyphar/filepath-securejoin v0.2.2
-## explicit
 github.com/cyphar/filepath-securejoin
 # github.com/fsnotify/fsnotify v1.4.9
 github.com/fsnotify/fsnotify
@@ -63,7 +51,6 @@ github.com/nxadm/tail/util
 github.com/nxadm/tail/watch
 github.com/nxadm/tail/winfile
 # github.com/onsi/ginkgo v1.14.2
-## explicit
 github.com/onsi/ginkgo
 github.com/onsi/ginkgo/config
 github.com/onsi/ginkgo/internal/codelocation
@@ -84,7 +71,6 @@ github.com/onsi/ginkgo/reporters/stenographer/support/go-colorable
 github.com/onsi/ginkgo/reporters/stenographer/support/go-isatty
 github.com/onsi/ginkgo/types
 # github.com/onsi/gomega v1.10.3
-## explicit
 github.com/onsi/gomega
 github.com/onsi/gomega/format
 github.com/onsi/gomega/gbytes
@@ -101,10 +87,8 @@ github.com/onsi/gomega/matchers/support/goraph/node
 github.com/onsi/gomega/matchers/support/goraph/util
 github.com/onsi/gomega/types
 # github.com/pkg/errors v0.9.1
-## explicit
 github.com/pkg/errors
 # github.com/satori/go.uuid v1.2.0
-## explicit
 github.com/satori/go.uuid
 # golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897
 golang.org/x/crypto/blowfish
@@ -116,15 +100,14 @@ golang.org/x/crypto/internal/subtle
 golang.org/x/crypto/poly1305
 golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
-# golang.org/x/net v0.0.0-20201026091529-146b70c837a4
+# golang.org/x/net v0.0.0-20201020065357-d65d470038a5
 golang.org/x/net/context
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sys v0.0.0-20201027090413-e1471140ff15
-## explicit
+# golang.org/x/sys v0.0.0-20201020230747-6e5568b54d1a
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/unix
@@ -180,5 +163,4 @@ google.golang.org/protobuf/runtime/protoimpl
 # gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
 gopkg.in/tomb.v1
 # gopkg.in/yaml.v2 v2.3.0
-## explicit
 gopkg.in/yaml.v2
