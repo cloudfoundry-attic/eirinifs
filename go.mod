@@ -17,6 +17,8 @@ require (
 	github.com/onsi/gomega v1.10.3
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/satori/go.uuid v1.2.0
-	golang.org/x/sys v0.0.0-20201027090413-e1471140ff15
+	golang.org/x/net v0.0.0-20201027133719-8eef5233e2a1 // indirect
+	golang.org/x/sys v0.0.0-20201027140754-0fcbb8f4928c
+	golang.org/x/text v0.3.4 // indirect
 	gopkg.in/yaml.v2 v2.3.0
 )
