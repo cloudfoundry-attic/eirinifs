@@ -1,4 +1,4 @@
-ARG baseimage=cloudfoundry/cflinuxfs3:0.210.0
+ARG baseimage=cloudfoundry/cflinuxfs3:0.211.0
 FROM golang:1.15.5 as builder
 WORKDIR /eirinifs/
 COPY . .
