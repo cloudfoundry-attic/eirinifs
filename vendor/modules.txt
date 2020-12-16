@@ -18,10 +18,10 @@ code.cloudfoundry.org/buildpackapplifecycle/shell/exec
 # code.cloudfoundry.org/bytefmt v0.0.0-20200131002437-cf55d5288a48
 ## explicit
 code.cloudfoundry.org/bytefmt
-# code.cloudfoundry.org/cacheddownloader v0.0.0-20200131002357-1a5ba4181601
+# code.cloudfoundry.org/cacheddownloader v0.0.0-20201214151716-97cc1d934c0e
 ## explicit
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20201207140453-63818c0e97d1
+# code.cloudfoundry.org/credhub-cli v0.0.0-20201214140232-4121a507e46b
 ## explicit
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
@@ -107,7 +107,6 @@ github.com/pkg/errors
 ## explicit
 github.com/satori/go.uuid
 # golang.org/x/crypto v0.0.0-20201208171446-5f87f3452ae9
-## explicit
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/chacha20
 golang.org/x/crypto/curve25519
@@ -117,15 +116,14 @@ golang.org/x/crypto/internal/subtle
 golang.org/x/crypto/poly1305
 golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
-# golang.org/x/net v0.0.0-20201207224615-747e23833adb
-## explicit
+# golang.org/x/net v0.0.0-20201209123823-ac852fbbde11
 golang.org/x/net/context
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sys v0.0.0-20201207223542-d4d67f95c62d
+# golang.org/x/sys v0.0.0-20201214210602-f9fddec55a1e
 ## explicit
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
