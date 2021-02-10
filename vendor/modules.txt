@@ -21,7 +21,7 @@ code.cloudfoundry.org/bytefmt
 # code.cloudfoundry.org/cacheddownloader v0.0.0-20201214151716-97cc1d934c0e
 ## explicit
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20210201140144-df587bb71e95
+# code.cloudfoundry.org/credhub-cli v0.0.0-20210208140210-88ab40ba8013
 ## explicit
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
@@ -56,7 +56,7 @@ github.com/fsnotify/fsnotify
 github.com/golang/protobuf/proto
 # github.com/hashicorp/go-version v1.2.1
 github.com/hashicorp/go-version
-# github.com/nxadm/tail v1.4.6
+# github.com/nxadm/tail v1.4.8
 github.com/nxadm/tail
 github.com/nxadm/tail/ratelimiter
 github.com/nxadm/tail/util

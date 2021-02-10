@@ -7,7 +7,7 @@ require (
 	code.cloudfoundry.org/buildpackapplifecycle v0.0.0-20200814172825-d53c18d48ba9
 	code.cloudfoundry.org/bytefmt v0.0.0-20200131002437-cf55d5288a48
 	code.cloudfoundry.org/cacheddownloader v0.0.0-20201214151716-97cc1d934c0e
-	code.cloudfoundry.org/credhub-cli v0.0.0-20210201140144-df587bb71e95
+	code.cloudfoundry.org/credhub-cli v0.0.0-20210208140210-88ab40ba8013
 	code.cloudfoundry.org/goshims v0.4.0
 	code.cloudfoundry.org/lager v2.0.0+incompatible
 	code.cloudfoundry.org/systemcerts v0.0.0-20200131000731-95ea366d9154 // indirect
