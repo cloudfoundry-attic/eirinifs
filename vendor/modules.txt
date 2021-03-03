@@ -21,7 +21,7 @@ code.cloudfoundry.org/bytefmt
 # code.cloudfoundry.org/cacheddownloader v0.0.0-20201214151716-97cc1d934c0e
 ## explicit
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20210222140148-2742883d1732
+# code.cloudfoundry.org/credhub-cli v0.0.0-20210301140131-00858a90128d
 ## explicit
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
@@ -40,8 +40,6 @@ code.cloudfoundry.org/goshims/osshim/os_fake
 ## explicit
 code.cloudfoundry.org/lager
 # code.cloudfoundry.org/systemcerts v0.0.0-20200131000731-95ea366d9154
-## explicit
-# code.cloudfoundry.org/tlsconfig v0.0.0-20200131000646-bbe0f8da39b3
 ## explicit
 # github.com/cloudfoundry/go-socks5 v0.0.0-20180221174514-54f73bdb8a8e
 github.com/cloudfoundry/go-socks5
@@ -116,15 +114,14 @@ golang.org/x/crypto/internal/subtle
 golang.org/x/crypto/poly1305
 golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
-# golang.org/x/net v0.0.0-20210224082022-3d97a244fca7
-## explicit
+# golang.org/x/net v0.0.0-20210226172049-e18ecbb05110
 golang.org/x/net/context
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sys v0.0.0-20210223212115-eede4237b368
+# golang.org/x/sys v0.0.0-20210301091718-77cc2087c03b
 ## explicit
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
