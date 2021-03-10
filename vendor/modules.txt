@@ -21,7 +21,7 @@ code.cloudfoundry.org/bytefmt
 # code.cloudfoundry.org/cacheddownloader v0.0.0-20201214151716-97cc1d934c0e
 ## explicit
 code.cloudfoundry.org/cacheddownloader
-# code.cloudfoundry.org/credhub-cli v0.0.0-20210301140131-00858a90128d
+# code.cloudfoundry.org/credhub-cli v0.0.0-20210303183456-ce5a460d8bd7
 ## explicit
 code.cloudfoundry.org/credhub-cli/credhub
 code.cloudfoundry.org/credhub-cli/credhub/auth
@@ -60,7 +60,7 @@ github.com/nxadm/tail/ratelimiter
 github.com/nxadm/tail/util
 github.com/nxadm/tail/watch
 github.com/nxadm/tail/winfile
-# github.com/onsi/ginkgo v1.15.0
+# github.com/onsi/ginkgo v1.15.1
 ## explicit
 github.com/onsi/ginkgo
 github.com/onsi/ginkgo/config
@@ -81,7 +81,7 @@ github.com/onsi/ginkgo/reporters/stenographer
 github.com/onsi/ginkgo/reporters/stenographer/support/go-colorable
 github.com/onsi/ginkgo/reporters/stenographer/support/go-isatty
 github.com/onsi/ginkgo/types
-# github.com/onsi/gomega v1.10.5
+# github.com/onsi/gomega v1.11.0
 ## explicit
 github.com/onsi/gomega
 github.com/onsi/gomega/format
@@ -121,7 +121,7 @@ golang.org/x/net/html/atom
 golang.org/x/net/html/charset
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sys v0.0.0-20210301091718-77cc2087c03b
+# golang.org/x/sys v0.0.0-20210309074719-68d13333faf2
 ## explicit
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
