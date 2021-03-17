@@ -1,5 +1,5 @@
 ARG baseimage=cloudfoundry/cflinuxfs3:0.230.0
-FROM golang:1.16 as builder
+FROM golang:1.16.2 as builder
 WORKDIR /eirinifs/
 COPY . .
 RUN CGO_ENABLED=0 go build -mod=vendor -a -installsuffix cgo -o launch ./launchcmd
